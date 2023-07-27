@@ -29,14 +29,12 @@ const Customizer = () => {
     switch (activeEditorTab) {
       case "colorpicker":
         return <ColorPicker />
-        break;
       case "filepicker":
         return <FilePicker
           file={file}
           setFile={setFile}
           readFile={readFile}
         />
-        break;
       case "aipicker":
         return <AIPicker
           prompt={prompt}
@@ -44,7 +42,6 @@ const Customizer = () => {
           generatingImg={generatingImg}
           handleSubmit={handleSubmit}
         />
-        break;
       default:
         return null;
     }
@@ -56,7 +53,7 @@ const Customizer = () => {
     try {
       setGeneratingImg(true);
 
-      const response = await fetch('/api/v1/dalle', {
+      const response = await fetch('http://localhost:8080/api/v1/dalle', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
